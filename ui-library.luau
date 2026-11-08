@@ -48,7 +48,7 @@ local library_object do
     local instance_new = Instance.new
 
     local rect_new = Rect.new
-    
+
     library_object = {
         Theme =  { },
 
@@ -62,9 +62,9 @@ local library_object do
         },
 
         Folders = {
-            Directory = "jade workspace",
-            Configs = "bitchbot/Configs",
-            Assets = "bitchbot/Assets",
+            Directory = "ws-obj",
+            Configs = "ws-obj/configs",
+            Assets = "ws-obj/assets",
         },
 
         Images = {
@@ -183,7 +183,7 @@ local library_object do
             ["Background"] = from_rgb(39, 39, 44),
             ["Inline"] = from_rgb(61, 60, 65),
             ["Outline"] = from_rgb(61, 60, 65),
-            ["Page Background"] = from_rgb(49, 48, 52),
+            ["Tab Background"] = from_rgb(49, 48, 52),
             ["Border"] = from_rgb(31, 25, 36),
             ["Accent"] = from_rgb(139, 69, 182),
             ["Text Border"] = from_rgb(0, 0, 0),
@@ -2190,7 +2190,7 @@ local library_object do
                     BorderSizePixel = 0,
                     TextSize = 14,
                     BackgroundColor3 = from_rgb(49, 48, 52)
-                })  items["Inactive"]:AddToTheme({BackgroundColor3 = "Page Background"})
+                })  items["Inactive"]:AddToTheme({BackgroundColor3 = "Tab Background"})
 
                 items["UIStroke"] = instances:Create("UIStroke", {
                     Parent = items["Inactive"].Instance,
@@ -2339,11 +2339,11 @@ local library_object do
                     items["PageContent"].Instance.Parent = library_object.UnusedHolder.Instance
 
                     items["UIStroke"]:ChangeItemTheme({Color = "Outline"})
-                    items["Inactive"]:ChangeItemTheme({BackgroundColor3 = "Page Background"})
+                    items["Inactive"]:ChangeItemTheme({BackgroundColor3 = "Tab Background"})
                     items["Hide"]:ChangeItemTheme({BackgroundColor3 = "Outline"})
 
                     items["UIStroke"]:Tween(nil, {Color = library_object.Theme.Outline})
-                    items["Inactive"]:Tween(nil, {BackgroundColor3 = library_object.Theme["Page Background"]})
+                    items["Inactive"]:Tween(nil, {BackgroundColor3 = library_object.Theme["Tab Background"]})
                     items["Hide"]:Tween(nil, {BackgroundColor3 = library_object.Theme.Outline})
                 end
 
