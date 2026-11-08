@@ -62,17 +62,17 @@ local library_object do
         },
 
         Folders = {
-            Directory = "bitchbot",
+            Directory = "jade workspace",
             Configs = "bitchbot/Configs",
             Assets = "bitchbot/Assets",
         },
 
         Images = {
             -- https://github.com/saliva-dot/ui-object/blob/main/images/saturation.png
-            ["Saturation"] = {"Saturation.png", "https://github.com/saliva-dot/ui-object/blob/main/images/saturation.png?raw=true" },
-            ["Value"] = { "Value.png", "https://github.com/sametexe001/saliva-dot/ui-object/blob/main/images/value.png?raw=true" },
-            ["Hue"] = { "Hue.png", "https://github.com/saliva-dot/ui-object/blob/main/images/horizontalhue.png?raw=true" },
-            ["Checkers"] = { "Checkers.png", "https://github.com/ssaliva-dot/ui-object/blob/main/images/checkers.png?raw=true" },
+            ["Saturation"] = {"Saturation.png", "https://raw.githubusercontent.com/saliva-dot/ui-object/main/images/saturation.png" },
+            ["Value"] = { "Value.png", "https://raw.githubusercontent.com/saliva-dot/ui-object/main/images/value.png" },
+            ["Hue"] = { "Hue.png", "https://raw.githubusercontent.com/saliva-dot/ui-object/main/images/horizontalhue.png" },
+            ["Checkers"] = { "Checkers.jpg", "https://raw.githubusercontent.com/saliva-dot/ui-object/main/images/checkers.jpg" },
         },
 
         -- Ignore below
@@ -210,8 +210,8 @@ local library_object do
         local image_name = image_data[1]
         local image_link = image_data[2]
         
-        if not isfile(library_object.Folders.Assets .. "/" .. ImageName) then
-            writefile(library_object.Folders.Assets .. "/" .. ImageName, game:HttpGet(image_link))
+        if not isfile(library_object.Folders.Assets .. "/" .. image_name) then
+            writefile(library_object.Folders.Assets .. "/" .. image_name, game:HttpGet(image_link))
         end
     end
 
@@ -549,12 +549,12 @@ local library_object do
     -- Custom font
     local custom_font = { } do
         function custom_font:New(name, weight, style, data)
-            if isfile(library_object.Folders.Assets .. "/" .. Name .. ".json") then
-                return Font.new(getcustomasset(library_object.Folders.Assets .. "/" .. Name .. ".json"))
+            if isfile(library_object.Folders.Assets .. "/" .. name .. ".json") then
+                return Font.new(getcustomasset(library_object.Folders.Assets .. "/" .. name .. ".json"))
             end
 
-            if not isfile(library_object.Folders.Assets .. "/" .. Name .. ".ttf") then 
-                writefile(library_object.Folders.Assets .. "/" .. Name .. ".ttf", game:HttpGet(data.Url))
+            if not isfile(library_object.Folders.Assets .. "/" .. name .. ".ttf") then 
+                writefile(library_object.Folders.Assets .. "/" .. name .. ".ttf", game:HttpGet(data.Url))
             end
 
             local font_data = {
@@ -572,8 +572,8 @@ local library_object do
         end
 
         function custom_font:Get(name)
-            if isfile(library_object.Folders.Assets .. "/" .. Name .. ".json") then
-                return Font.new(getcustomasset(library_object.Folders.Assets .. "/" .. Name .. ".json"))
+            if isfile(library_object.Folders.Assets .. "/" .. name .. ".json") then
+                return Font.new(getcustomasset(library_object.Folders.Assets .. "/" .. name .. ".json"))
             end
         end
 
@@ -654,7 +654,7 @@ local library_object do
             return
         end
 
-        return getcustomasset(self.Folders.Assets .. "/" .. ImageData[1])
+        return getcustomasset(self.Folders.Assets .. "/" .. image_data[1])
     end
 
     library_object.Round = function(self, number, float)
