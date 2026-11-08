@@ -563,12 +563,12 @@ local library_object do
                     name = "Regular",
                     weight = weight,
                     style = style,
-                    assetId = getcustomasset(library_object.Folders.Assets .. "/" .. Name .. ".ttf")
+                    assetId = getcustomasset(library_object.Folders.Assets .. "/" .. name .. ".ttf")
                 } }
             }
 
-            writefile(library_object.Folders.Assets .. "/" .. Name .. ".json", http_service:JSONEncode(font_data))
-            return Font.new(getcustomasset(library_object.Folders.Assets .. "/" .. Name .. ".json"))
+            writefile(library_object.Folders.Assets .. "/" .. name .. ".json", http_service:JSONEncode(font_data))
+            return Font.new(getcustomasset(library_object.Folders.Assets .. "/" .. name .. ".json"))
         end
 
         function custom_font:Get(name)
@@ -644,7 +644,6 @@ local library_object do
         end
 
         library_object = nil 
-        getgenv().library_object = nil
     end
 
     library_object.GetImage = function(self, image)
