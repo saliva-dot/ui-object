@@ -1413,7 +1413,7 @@ local library_object do
         end
 
         function colorpicker:Update(is_from_alpha)
-            local hue, saturation, Value = self.Hue, self.Saturation, self.Value
+            local hue, saturation, value = self.Hue, self.Saturation, self.Value
             local color = from_hsv(hue, saturation, value)
 
             self.HoveringColor = color
