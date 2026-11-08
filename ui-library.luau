@@ -798,7 +798,7 @@ local library_object do
         local config_folder_name = string_g_sub(library_object.Folders.Configs, library_object.Folders.Directory .. "/", "")
 
         for index, value in listfiles(library_object.Folders.Configs) do
-            local file_name = string_g_sub(value, library_object.Folders.Directory .. "\\" .. ConfigFolderName .. "\\", "")
+            local file_name = string_g_sub(value, library_object.Folders.Directory .. "\\" .. config_folder_name .. "\\", "")
             list[index] = file_name
         end
 
